@@ -1,0 +1,28 @@
+{
+  "name": "mongoscrape",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mongoose": "^5.8.11",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nupshaw91/mongoScrape.git"
+  },
+  "author": "Nicholas Upshaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nupshaw91/mongoScrape/issues"
+  },
+  "homepage": "https://github.com/nupshaw91/mongoScrape#readme"
+}

@@ -6,7 +6,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 
 
-var db = require("./models");
+// var db = require("./models");
 
 
 var app = express();
@@ -27,7 +27,12 @@ var port =  process.env.PORT || 3000;
 
 
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoarticles";
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error"))
+db.on("open", function() {
+  console.log("connection to mongoose!")
+})
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,

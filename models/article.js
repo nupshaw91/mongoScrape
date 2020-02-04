@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var articleSchema= new Schema({
+var ArticleSchema= new Schema({
     title: {
         type: String,
         required: true
@@ -11,12 +11,12 @@ var articleSchema= new Schema({
         type: String,
         required: true
       },
-      note: {
+      comment: {
         type: Schema.Types.ObjectId,
-        ref: "news"
+        ref: "comment"
       }
 });
 
-var article = mongoose.model("Article", articleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 
-module.exports = article;
+module.exports = Article;

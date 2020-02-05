@@ -1,25 +1,40 @@
- <div class="row">
+ {{!-- <div class="row">
     <div class="col s12 m6">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <span class="card-title">Mongo Scrape</span>
+          <p>This is an app the will allow you to pull news articles from a news source and highlight some articles to read and leave a comment.
+              Please use the buttons below for the action you want.
+          </p>
         </div>
         <div class="card-action">
-          <button>Scrape</button>
+          <button><a href="/scrape">Scrape</a></button>
+          <button><a href="/clearAll">Clear</a></button>
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
- <div class="row">
-     <div class="col s8 left align">
-         {{#each article}}
-         <div class="card-panel">
-             <h4>{{this.Title}}</h4>
-             <a href="/readArticle/{{this._id}}" class="waves-effect waves-light btn" id="btnSignUp">Read Article</a>
-         </div>
-         {{/each}}
-     </div>
- </div> 
+  <div>
+    <h1 class="card z-depth-3 center-align">Read the Latest from 'The Verge'</h1>
+    <div class="row">
+        <div class="col s3"></div>
+        <h5 class="card z-depth-3 center-align col s6"> <button><a href="/scrape">Scrape</a></button> <button><a href="/clearAll">Clear</a></button></h5>
+    </div>
+</div>
+
+  <div class="row">
+    <div class="col s2"></div>
+    <div class="col s8 left-align">
+        {{#each article}}
+        <div class="card-panel">
+            <h4>{{this.title}}</h4>
+            <a href="/readArticle/{{this._id}}" class="waves-effect waves-light btn" id="btnSignUp">Read Article</a>
+
+        </div>
+
+        {{/each}}
+    </div>
+</div>
+
+ 

@@ -198,7 +198,7 @@ app.post("/comment/:id", function(req, res) {
         if (err) {
           console.log(err);
         } else {
-          r
+          
           res.redirect("/readArticle/" + articleId);
         }
       });

@@ -42,7 +42,7 @@ var port = 5501;
 
 
 
-var db = require("./models")
+var db = require("./models/index")
 
  
 

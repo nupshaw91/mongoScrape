@@ -11,8 +11,8 @@ var app = express();
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-// var Comment = require("../models/Comment.js");
-// var Article = require("../models/Article.js");
+var Comment = require("./models/Comment");
+var Article = require("./models/Article");
 
 app.use(logger("dev"));
 // Parse request body as JSON
@@ -37,17 +37,17 @@ app.set("view engine", "handlebars");
 
 
 
-var port = 5501;
+var port = 3000;
 
 
 
 
-var db = require("./models/index.js")
+// var db = require("./models/index.js")
 
  
 
 
-mongoose.connect("mongodb://localhost:27017/mongoscrape", {
+mongoose.connect("mongodb://localhost/mongoscrape", {
   useNewUrlParser: true,
   useUnifiedTopology: true});
 
@@ -84,9 +84,9 @@ app.get("/scrape", function(req, res) {
         if (titlesArray.indexOf(result.title) == -1) {
           titlesArray.push(result.title);
 
-          db.Article.countDocuments({ title: result.title }, function(err, test) {
+          Article.countDocuments({ title: result.title }, function(err, test) {
             if (test === 0) {
-              var entry = new db.Article(result);
+              var entry = new Article(result);
 
               entry.save(function(err, doc) {
                 if (err) {
@@ -112,7 +112,7 @@ app.get("/scrape", function(req, res) {
   // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   
-  db.Article.findOne()
+  Article.findOne()
 .sort({ _id: -1 })
 .exec(function(err, doc) {
   if (err) {
@@ -126,7 +126,7 @@ app.get("/articles", function(req, res) {
 });
 });
 app.get("/clearAll", function(req, res) {
-    db.Article.deleteMany({}, function(err, doc) {
+    Article.deleteMany({}, function(err, doc) {
       if (err) {
         console.log(err);
       } else {
@@ -145,7 +145,7 @@ app.get("/readarticles/:id", function(req, res) {
     body: []
   };
   
-  db.Article.findOne({ _id: articleId })
+  Article.findOne({ _id: articleId })
   .populate("comment")
   .exec(function(err, doc) {
     if (err) {
@@ -190,7 +190,7 @@ app.post("/comment/:id", function(req, res) {
       console.log(doc._id);
       console.log(articleId);
 
-      db.Article.findOneAndUpdate(
+      Article.findOneAndUpdate(
         { _id: req.params.id },
         { $push: { comment: doc._id } },
         { new: true }

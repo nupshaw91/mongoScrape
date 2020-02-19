@@ -33,7 +33,10 @@ app.set("view engine", "handlebars");
 
 
 
-var port = process.env.port || 3000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 
 
 mongoose.connect("mongodb://localhost:27017/mongoscrape", {

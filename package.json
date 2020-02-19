@@ -1,5 +1,5 @@
 {
-  "name": "mongoScrape",
+  "name": "mongoscrape",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",

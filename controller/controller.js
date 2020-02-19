@@ -8,7 +8,7 @@ var axios = require("axios");
 var request = require("request");
 var cheerio = require("cheerio");
 
-var Comment = require("../models/comment.js");
+var Comment = require("../models/Comment.js");
 var Article = require("../models/article.js");
 
 

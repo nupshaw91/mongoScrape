@@ -6,6 +6,7 @@ var Comment = require("../models/Comment.js");
 var Article = require("../models/Article.js");
 
 var axios = require("axios");
+var request = require("request");
 var cheerio = require("cheerio");
 
 var Comment = require("../models/Comment.js");
@@ -118,10 +119,10 @@ router.get("/readArticle/:id", function (req, res) {
                 hbsObj.article = doc;
                 var link = doc.link;
 
-                axios.get(link).then( function (error, response) {
+                request(link, function(error, response, html)  {
                 
-                    console.log(response)
-                    var $ = cheerio.load(response);
+                    
+                    var $ = cheerio.load(html);
                     
 
                     $(".l-col__main").each(function (i, element) {

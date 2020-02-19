@@ -8,11 +8,6 @@ var router = express.Router();
 
 
 
-var axios = require("axios");
-var cheerio = require("cheerio");
-
-var Comment = require("./models/Comment");
-var Article = require("./models/Article");
 
 app.use(logger("dev"));
 // Parse request body as JSON
@@ -29,6 +24,7 @@ app.engine(
   exphbs({
     defaultLayout: "main",
     allowedProtoMethods:true,
+    allowedProtoProperties:true,
 
   })
 );
@@ -40,13 +36,6 @@ app.set("view engine", "handlebars");
 var port = process.env.port || 3000;
 
 
-
-
-
-
- 
-
-
 mongoose.connect("mongodb://localhost:27017/mongoscrape", {
   useNewUrlParser: true,
   useUnifiedTopology: true});
@@ -56,10 +45,6 @@ mongoose.connect("mongodb://localhost:27017/mongoscrape", {
   db.once("open",function(){
     console.log("connected to mongoose");
   });
-
-
-  
-
 
 
   var routes = require("./controller/controller");

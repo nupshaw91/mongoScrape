@@ -4,29 +4,28 @@
 </div>
 
 <div class="row">
-    <div class=" col s2">
-        <form action="/comment/{{article._id}}" method="POST" class="card-panel col s8">
-            <h5>Comment on this Article</h5>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="comments" type="text" placeholder="Name" name="name" class="validate active">
-                    <label for="comments">Comment</label>
-                </div>
+    <div class="col s2"></div>
+    <form action="/comment/{{article._id}}" method="POST" class="card-panel col s8">
+        <h5>Comment on this Article</h5>
+        <div class="row">
+            <div class="input-field">
+                <i class="material-icons prefix">perm_identity</i>
+                <input id="icon_prefix" type="text" placeholder="Name" name="name" class="validate active">
+            </div>
 
-                <div class="input-field col s12">
-                    <input id="comment" type="text" placeholder="Comment" name="comment" class="validate">
-                    <label for="comment">Comment</label>
-                </div>
+            <div class="input-field">
+                <i class="material-icons prefix">comment</i>
+                <input id="icon_telephone" type="text" placeholder="Comment" name="comment" class="validate active">
             </div>
-            <div class="row">
-                <div class="input-field">
-                    <center><input class="btn add-comment-button topnav" type="submit" value="Submit"></input></center>
-                </div>
+
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <center><input class="btn add-comment-button topnav" type="submit" value="Submit"></center>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
-
 <div class="row">
     <div class="col s2"></div>
     <div class="col s8">
@@ -35,7 +34,7 @@
         {{#each article.comment}}
         <div class="card">
             <p id="nameComment">{{name}}</p>
-            <p>{{body}}</p>
+            <p>{{body}}<p>
         </div>
         {{/each}}
         {{else}}
@@ -44,4 +43,3 @@
 
     </div>
 </div>
-

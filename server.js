@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var express = require("express");
 var app = express();
 var router = express.Router();
-
+app.use(express.static(__dirname + "/public/"));
 
 
 
@@ -16,7 +16,7 @@ app.use(express.json());
 // Make public a static folder
 
 
-app.use(express.static(__dirname + "/public/"));
+// app.use(express.static(__dirname + "/public/"));
 //Require set up handlebars
 var exphbs = require("express-handlebars");
 app.engine(

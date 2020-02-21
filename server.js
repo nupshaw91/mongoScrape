@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var express = require("express");
 var app = express();
 var router = express.Router();
+
+// Make public a static folder
 app.use(express.static(__dirname + "/public/"));
 
 
@@ -13,10 +15,10 @@ app.use(logger("dev"));
 // Parse request body as JSON
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-// Make public a static folder
 
 
-// app.use(express.static(__dirname + "/public/"));
+
+
 //Require set up handlebars
 var exphbs = require("express-handlebars");
 app.engine(
@@ -37,7 +39,7 @@ let port = 3000;
 
 
 
-mongoose.connect("mongodb://0.0.0.0/mongoscrape", {
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://0.0.0.0/mongoscrape", {
   useNewUrlParser: true,
   useUnifiedTopology: true,});
 

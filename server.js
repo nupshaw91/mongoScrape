@@ -35,7 +35,7 @@ app.set("view engine", "handlebars");
 
 
 
-let port = 3000;
+let PORT = process.env.PORT || 3000;
 
 
 
@@ -54,6 +54,6 @@ mongoose.connect(process.env.MONGODB_URI ||"mongodb://0.0.0.0/mongoscrape", {
   app.use("/", routes);
 
 // Start the server
-app.listen(port, function() {
-    console.log("App running on port " + port + "!");
+app.listen(PORT, function() {
+    console.log("App running on port " + PORT + "!");
   });

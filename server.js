@@ -37,9 +37,9 @@ let port = 3000;
 
 
 
-mongoose.connect("mongodb://localhost:27017/mongoscrape", {
+mongoose.connect("mongodb://0.0.0.0/mongoscrape", {
   useNewUrlParser: true,
-  useUnifiedTopology: true});
+  useUnifiedTopology: true,});
 
   var db = mongoose.connection;
   db.on("error", console.error.bind(console, "connection error:"));

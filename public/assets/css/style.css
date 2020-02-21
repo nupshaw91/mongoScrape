@@ -1,14 +1,9 @@
-body {
-    background-size: 600px;
+main {
+    background-size: auto;
     font-family: "Oswald", sans-serif;
     font-size: 16px;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
   }
-  main {
-    flex: 1 0 auto;
-  }
+  
   .articleBody {
     height: 200px;
     font-size: 20px;

@@ -1,9 +1,25 @@
+/* main body container styling */
 main {
     background-size: auto;
     font-family: "Oswald", sans-serif;
     font-size: 16px;
+    flex: 1 0 auto;
   }
-  
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+/* navbar stylying */
+.topnav {
+  background-color: #635f60;
+}
+  .brand-logo{
+    font-family: 'Courgette', cursive;
+}
+
+/* page styling */
   .articleBody {
     height: 200px;
     font-size: 20px;
@@ -29,7 +45,6 @@ main {
   .input-field .prefix.active {
     color: #635f60;
   }
-  .topnav {
-    background-color: #635f60;
-  }
+
+  /* Footer Styling */
   

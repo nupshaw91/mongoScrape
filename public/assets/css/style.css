@@ -33,7 +33,7 @@ main {
     
     font-weight: bold;
     background: #635f60;
-    color: white;
+    color: black;
   }
   .input-field input[type="text"]:focus + label {
     color: #635f60;

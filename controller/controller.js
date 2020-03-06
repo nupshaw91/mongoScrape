@@ -159,7 +159,7 @@ router.post("/comment/:id", function (req, res) {
         } else {
             console.log(doc._id);
             console.log(articleId);
-
+            // console.log(article.comment);
             Article.findOneAndUpdate(
                 { _id: req.params.id },
                 { $push: { comment: doc._id } },
